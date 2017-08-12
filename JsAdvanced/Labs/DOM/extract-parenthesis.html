@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">
+    Rakiya (Bg drink) alaalaa (text)
+</p>
+<script>
+    window.onload = function () {
+        extract('content')
+    };
+
+
+    function extract(id) {
+        let regex = /\(.*?\)/g;
+        let text = document.getElementById(id).textContent;
+        let final = '';
+        let match;
+        while (match = regex.exec(text)) {
+            final += match[0] + "; ";
+        }
+
+        return  final
+    }
+</script>
+</body>
+</html>
