@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Calendar</title>
+    <style>
+        .prev-month, .next-month { color: #CCC }
+        .today { font-weight: bold; background: #DDD; }
+        .title { background: #AAAAFF; margin: 10px 0; padding:5px }
+        table { border: 1px solid #CCC;}
+        td { text-align: center; }
+        #calendarCode { width: 100%; }
+    </style>
+    <script>
+
+        function calendar(arr) {
+            let myDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+            let day = arr[0];
+            let month = arr[1] - 1;
+            let year = arr[2];
+
+            let output = '<table>\n';
+            output += '  <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>\n';
+
+            let firstDateOfMonth = new Date(year, month, 1);
+
+            let startDate;
+
+            switch (firstDateOfMonth.getDay()) {
+                case 0:
+                    startDate = new Date(year, month, 1);
+                    break;
+                case 1:
+                    startDate = new Date(year, month, 0);
+                    break;
+                case 2:
+                    startDate = new Date(year, month, -1);
+                    break;
+                case 3:
+                    startDate = new Date(year, month, -2);
+                    break;
+                case 4:
+                    startDate = new Date(year, month, -3);
+                    break;
+                case 5:
+                    startDate = new Date(year, month, -4);
+                    break;
+                case 6:
+                    startDate = new Date(year, month, -5);
+                    break;
+            }
+
+
+            let con = true;
+            while (con){
+                output += '  <tr>';
+                for (let j = 0; j < 7; j++) {
+
+                    if((startDate.getMonth() ===  month - 1) || (startDate.getMonth() == 11 && month == 0)){
+                        output += `<td class="prev-month">${startDate.getDate()}</td>`;
+                    } else if((startDate.getMonth() ===  month + 1) || (startDate.getMonth() == 0 && month == 11)){
+                        output += `<td class="next-month">${startDate.getDate()}</td>`;
+                        con = false;
+                    } else if(startDate.getDate() == day && startDate.getMonth() == month){
+                        output += `<td class="today">${startDate.getDate()}</td>`;
+                    }
+                    else {
+                        output += `<td>${startDate.getDate()}</td>`;
+                    }
+                    startDate.setDate(startDate.getDate() + 1);
+
+                    if((startDate.getDate() == 30 || startDate.getDate() == 31) && startDate.getDay() == 6){
+                        con = false;
+                    }
+                }
+
+                output += '</tr>\n';
+            }
+            output += '</table>';
+            return output
+        }
+    </script>
+</head>
+
+<body>
+Day: <input id="day" type="number" value="4" />
+Month: <input id="month" type="number" value="9" />
+Year: <input id="year" type="number" value="2016" />
+<input type="button" value="Show"
+       onclick="let calendarHTML =
+            calendar([document.getElementById('day').value,
+                document.getElementById('month').value,
+                document.getElementById('year').value]);
+            document.getElementById('calendar').innerHTML = calendarHTML;
+            document.getElementById('calendarCode').innerText = calendarHTML" />
+<div class="title">Calendar:</div>
+<div id="calendar">Calendar will be shown here</div>
+<div class="title">HTML:</div>
+<textarea rows="12" id="calendarCode"></textarea>
+</body>
+
+</html>
