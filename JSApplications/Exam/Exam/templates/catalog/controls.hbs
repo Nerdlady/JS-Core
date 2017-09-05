@@ -1,0 +1,9 @@
+<div class="controls">
+    <ul>
+        <li class="action"><a href="#/post/details/{{_id}}">Details</a></li>
+        {{#ifEquals @root.username author}}
+            <li class="action"><a href="#/post/edit/{{_id}}" class="editPost">Edit</a></li>
+            <li class="action"><a href="#/post/delete/{{_id}}" class="deletePost">Delete</a></li>
+        {{/ifEquals}}
+    </ul>
+</div>

@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SeenIt</title>
+    <link rel="stylesheet" href="style/site.css">
+    <link rel="stylesheet" href="style/post.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" href="style/notifications.css">
+    <link rel="stylesheet" href="style/comment.css">
+    <link rel="stylesheet" href="style/submit.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="node_modules/sammy/lib/min/sammy-0.7.6.min.js"></script>
+    <script src="node_modules/sammy/lib/min/plugins/sammy.handlebars-0.7.6.min.js"></script>
+    <script src="scripts/handlers/home.js"></script>
+    <script src="scripts/handlers/about.js"></script>
+    <script src="scripts/handlers/userSession.js"></script>
+    <script src="scripts/handlers/postSession.js"></script>
+    <script src="scripts/notifications.js"></script>
+    <script src="scripts/models/requester.js"></script>
+    <script src="scripts/models/auth.js"></script>
+    <script src="scripts/models/postsService.js"></script>
+    <script src="scripts/models/commentsService.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+<div id="loadingBox" style="display:none" class="notification">Loading ...</div>
+<div id="infoBox" style="display:none" class="notification">Info</div>
+<div id="errorBox" style="display:none" class="notification">Error</div>
+<div id="app">
+</div>
+
+</body>
+</html>

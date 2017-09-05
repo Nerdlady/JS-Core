@@ -1,0 +1,8 @@
+<article class="comment">
+    <div class="comment-content">
+       {{content}}
+    </div>
+    {{#ifEquals @root.username author }}
+    <a href="#/comments/delete/{{_id}}" class="action">[Delete]</a>
+    {{/ifEquals}}
+</article>

@@ -1,0 +1,26 @@
+{{> header}}
+<main class="content">
+    {{#if loggedIn}}
+        {{> menu}}
+    {{/if}}
+    <article id="postDetails" class="post">
+        <div class="col thumbnail">
+            <img src="{{post.imageUrl}}">
+        </div>
+        <div class="post-content">
+            <div class="title">
+                <strong>{{post.title}}</strong>
+            </div>
+            <div class="details">
+                {{#if post.description}}
+                    <p>{{post.description}}</p>
+                {{else}}
+                    <p>No description in it’s place</p>
+                {{/if}}
+
+            </div>
+        </div>
+    </article>
+    {{> commentSection}}
+</main>
+{{> footer}}

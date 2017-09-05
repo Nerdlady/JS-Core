@@ -1,0 +1,15 @@
+{{> header}}
+<main class="content">
+    {{#if loggedIn}}
+        {{> menu}}
+    {{/if}}
+    <div id="allForumPosts" class="posts">
+        {{#each posts}}
+            {{> post}}
+        {{else}}
+            <p>No posts in database</p>
+        {{/each}}
+
+    </div>
+</main>
+{{> footer}}
